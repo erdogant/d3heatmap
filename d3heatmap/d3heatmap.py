@@ -85,12 +85,13 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, scal
     if description is None:
         description = "This heatmap is created in d3js using https://github.com/erdogant/d3heatmap.\n\nA network can be represented by an adjacency matrix, where each cell ij represents an edge from vertex i to vertex j.\n\nGiven this two-dimensional representation of a graph, a natural visualization is to show the matrix! However, the effectiveness of a matrix diagram is heavily dependent on the order of rows and columns: if related nodes are placed closed to each other, it is easier to identify clusters and bridges.\nWhile path-following is harder in a matrix view than in a node-link diagram, matrices have other advantages. As networks get large and highly connected, node-link diagrams often devolve into giant hairballs of line crossings. Line crossings are impossible with matrix views. Matrix cells can also be encoded to show additional data; here color depicts clusters computed by a community-detection algorithm."
 
-    # Rescale data
-    if scale:
-        df = _scale(df, vmax=vmax, make_round=False, verbose=verbose)
     # if vmin is None:
         # vmin = np.min(df.values)
     if vmax is None:
+        vmax = np.max(df.values)
+    # Rescale data
+    if scale:
+        df = _scale(df, vmax=vmax, make_round=False, verbose=verbose)
         vmax = np.max(df.values)
 
     # Get path to files
@@ -482,7 +483,7 @@ def _scale(X, vmax=100, make_round=True, verbose=3):
         Scaled image.
 
     """
-    if verbose>=3: print('[d3heatmap] >Scaling image between [min-%.0d]' %(vmax))
+    if verbose>=3: print('[d3heatmap] >Scaling image between [min-%.0g]' %(vmax))
     try:
         # Normalizing between 0-100
         # X = X - X.min()
