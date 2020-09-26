@@ -79,9 +79,9 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, scal
 
     """
     if len(df.columns.unique())!=len(df.columns):
-        if verbose>=2: print('[imagesc] >Warning: Input data should contain unique column names otherwise d3js randomly removes the non-unique ones.')
+        if verbose>=2: print('[d3heatmap] >Warning: Input data should contain unique column names otherwise d3js randomly removes the non-unique ones.')
     if len(df.index.unique())!=len(df.index):
-        if verbose>=2: print('[imagesc] >Warning: Input data should contain unique index names otherwise d3js randomly removes the non-unique ones.')
+        if verbose>=2: print('[d3heatmap] >Warning: Input data should contain unique index names otherwise d3js randomly removes the non-unique ones.')
     if description is None:
         description = "This heatmap is created in d3js using https://github.com/erdogant/d3heatmap.\n\nA network can be represented by an adjacency matrix, where each cell ij represents an edge from vertex i to vertex j.\n\nGiven this two-dimensional representation of a graph, a natural visualization is to show the matrix! However, the effectiveness of a matrix diagram is heavily dependent on the order of rows and columns: if related nodes are placed closed to each other, it is easier to identify clusters and bridges.\nWhile path-following is harder in a matrix view than in a node-link diagram, matrices have other advantages. As networks get large and highly connected, node-link diagrams often devolve into giant hairballs of line crossings. Line crossings are impossible with matrix views. Matrix cells can also be encoded to show additional data; here color depicts clusters computed by a community-detection algorithm."
 
@@ -309,26 +309,26 @@ def matrix(df, path=None, title='d3heatmap!', description='Heatmap description',
     """
     if cmap in ['schemeCategory10', 'schemeAccent', 'schemeDark2', 'schemePaired', 'schemePastel2', 'schemePastel1', 'schemeSet1', 'schemeSet2', 'schemeSet3', 'schemeTableau10']:
         cmap_type='scaleOrdinal'
-        if verbose>=3: print('[imagesc] >d3 cmap type is set to %s' %(cmap_type))
+        if verbose>=3: print('[d3heatmap] >d3 cmap type is set to %s' %(cmap_type))
     else:
         cmap_type='scaleSequential'
 
     if len(df.columns.unique())!=len(df.columns):
-        if verbose>=2: print('[imagesc] >Warning: Input data should contain unique column names otherwise d3js randomly removes the non-unique ones.')
+        if verbose>=2: print('[d3heatmap] >Warning: Input data should contain unique column names otherwise d3js randomly removes the non-unique ones.')
     if len(df.index.unique())!=len(df.index):
-        if verbose>=2: print('[imagesc] >Warning: Input data should contain unique index names otherwise d3js randomly removes the non-unique ones.')
+        if verbose>=2: print('[d3heatmap] >Warning: Input data should contain unique index names otherwise d3js randomly removes the non-unique ones.')
 
     # Rescale data between 0-100
     if scale:
         df = _scale(df, verbose=verbose)
     if (not scale) and (vmin is not None) and (vmax is not None):
-        if verbose>=3: print('[imagesc] >Data is not scaled. Tip: set vmin=None and vmax=None to range colors between min-max of your data.')
+        if verbose>=3: print('[d3heatmap] >Data is not scaled. Tip: set vmin=None and vmax=None to range colors between min-max of your data.')
     if vmin is None:
         vmin = np.min(df.values)
     if vmax is None:
         vmax = np.max(df.values)
-    if verbose>=3: print('[imagesc] >vmin is set to: %g' %(vmin))
-    if verbose>=3: print('[imagesc] >vmax is set to: %g' %(vmax))
+    if verbose>=3: print('[d3heatmap] >vmin is set to: %g' %(vmin))
+    if verbose>=3: print('[d3heatmap] >vmax is set to: %g' %(vmax))
 
     # Get path to files
     d3_library = os.path.abspath(os.path.join(curpath, 'd3js/d3.v4.js'))
@@ -450,10 +450,10 @@ def _path_check(path, verbose):
         dirpath, filename = os.path.split(path)
     # Check before proceeding
     if not ('.html' in filename):
-        raise ValueError('[imagesc] >path should contain the file extension: ".html" ')
+        raise ValueError('[d3heatmap] >path should contain the file extension: ".html" ')
     # Create dir
     if not os.path.isdir(dirpath):
-        if verbose>=2: print('[imagesc] >Warning: Creating directory [%s]' %(dirpath))
+        if verbose>=2: print('[d3heatmap] >Warning: Creating directory [%s]' %(dirpath))
         os.makedirs(dirpath, exist_ok=True)
     # Final
     path = os.path.abspath(path)
@@ -482,7 +482,7 @@ def _scale(X, vmax=100, make_round=True, verbose=3):
         Scaled image.
 
     """
-    if verbose>=3: print('[imagesc] >Scaling image between [min-100]')
+    if verbose>=3: print('[d3heatmap] >Scaling image between [min-%.0d]' %(vmax))
     try:
         # Normalizing between 0-100
         # X = X - X.min()
@@ -491,6 +491,6 @@ def _scale(X, vmax=100, make_round=True, verbose=3):
         if make_round:
             X = np.round(X)
     except:
-        if verbose>=2: print('[imagesc] >Warning: Scaling not possible.')
+        if verbose>=2: print('[d3heatmap] >Warning: Scaling not possible.')
 
     return X
