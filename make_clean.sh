@@ -3,6 +3,8 @@ rm -rf dist
 rm -rf build
 rm -rf d3heatmap.egg-info
 rm -rf __pycache__
+rm -rf d3heatmap/__pycache__
+rm -rf d3heatmap/utils/__pycache__
 rm -rf .pytest_cache
 rm -rf .pylint.d
 rm -rf d3heatmap/data/*.zip
