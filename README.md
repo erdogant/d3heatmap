@@ -12,7 +12,20 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erdogant/d3heatmap/blob/master/notebooks/d3heatmap.ipynb)
 
 * ``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
-* This library does not require you any additional installation, downloads or setting paths to your systems environments. You just need python and this library. All other is taken care off!
+* This library does not require you any additional installation, downloads or setting paths to your systems environments. You just need python and this library. All other is taken care off. There are two main functions to create a heatmap ``matrix`` and ``heatmap`` and there are some differences between the two.
+
+**Differences between the ``heatmap`` vs ``matrix``**
+
+``matrix``
+ * Allows none symetric adjacency matrices.
+ * Colormap can be changed.
+ * No clustering.
+ * round-ish elements.
+
+``heatmap``
+ * Clustering of adjacency matrices.
+ * Colormap is fixed.
+ * Adjacency matrix must be symetric.
 
 
 ### Installation
@@ -94,17 +107,6 @@ paths = d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is cr
 #### Example 4: Comparison heatmap vs matrix:
 There are quit some differences between the ``heatmap`` vs ``matrix`` functionality.
 
-``matrix``
- * Allows none symetric adjacency matrices.
- * Colormap can be changed.
- * No clustering.
- * round-ish elements.
-
-``heatmap``
- * Clustering of adjacency matrices.
- * Colormap is fixed.
- * Adjacency matrix must be symetric.
-
 ```python
 df = d3.import_example()
 results = d3.heatmap(df, title='d3heatmap with the heatmap function.', path='heatmap.html')
@@ -113,7 +115,7 @@ results = d3.matrix(df, title='d3heatmap with the matrix function.', cmap='inter
 
 <p align="center">
   <img src="https://github.com/erdogant/d3heatmap/blob/master/docs/figs/example_5.png" width="600" />
-  <img src="https://github.com/erdogant/d3heatmap/blob/master/docs/figs/example_6.png" width="600" />
+  <img src="https://github.com/erdogant/d3heatmap/blob/master/docs/figs/example_6.png" width="500" />
 </p>
 
 #### Citation
