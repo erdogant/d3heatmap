@@ -1,0 +1,2 @@
+include d3heatmap/data/*.zip
+include d3heatmap/data/*.txt

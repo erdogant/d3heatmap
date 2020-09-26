@@ -1,0 +1,9 @@
+#conda create -n env_d3heatmap python=3.6
+#conda activate env_d3heatmap
+#conda install spyder
+
+wget
+matplotlib 
+numpy 
+pandas 
+tqdm
