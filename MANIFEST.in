@@ -1,2 +1,3 @@
-include d3heatmap/data/*.zip
-include d3heatmap/data/*.txt
+include d3heatmap/d3js/*.js
+include d3heatmap/d3js/*.css
+include d3heatmap/d3js/*.html
