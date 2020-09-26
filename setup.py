@@ -13,7 +13,7 @@ else:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
-     install_requires=['clusteval', 'numpy', 'pandas'],
+     install_requires=['ismember','clusteval', 'numpy', 'pandas'],
      python_requires='>=3',
      name='d3heatmap',
      version=new_version,
