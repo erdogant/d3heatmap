@@ -22,7 +22,7 @@
  * round-ish elements.
 
 ``d3heatmap.heatmap``
- * Clustering of adjacency matrices.
+ * Allows Clustering.
  * Colormap is fixed.
  * Adjacency matrix must be symetric.
 
