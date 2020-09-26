@@ -15,15 +15,13 @@
 * The **aim** of d3heatmap is to create interactive heatmaps that can be used stand-alone and visual attractive. 
 * This library does not require you any additional installation, downloads or setting paths to your systems environments. You just need python and this library. All other is taken care off. There are two main functions to create a heatmap ``matrix`` and ``heatmap`` and there are some differences between the two.
 
-**Differences between the ``heatmap`` vs ``matrix``**
-
-``matrix``
+``d3heatmap.matrix``
  * Allows none symetric adjacency matrices.
  * Colormap can be changed.
  * No clustering.
  * round-ish elements.
 
-``heatmap``
+``d3heatmap.heatmap``
  * Clustering of adjacency matrices.
  * Colormap is fixed.
  * Adjacency matrix must be symetric.
