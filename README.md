@@ -24,6 +24,7 @@
 ``d3heatmap.heatmap``
  * Allows Clustering.
  * Colormap is fixed.
+ * Advanced cluster coloring. Clusters are colored and within each cluster the color is incremental based on the value.
  * Adjacency matrix must be symetric.
 
 
