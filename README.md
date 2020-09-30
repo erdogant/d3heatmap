@@ -9,6 +9,7 @@
 [![Project Status](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Downloads](https://pepy.tech/badge/d3heatmap/month)](https://pepy.tech/project/d3heatmap/month)
 [![Downloads](https://pepy.tech/badge/d3heatmap)](https://pepy.tech/project/d3heatmap)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erdogant/d3heatmap/blob/master/notebooks/d3heatmap.ipynb)
 
 * ``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
 * The **aim** of d3heatmap is to create interactive heatmaps that can be used stand-alone and visual attractive. 
