@@ -163,19 +163,17 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
     # Read the d3 html with script file
     d3graphscript = d3graphscript.replace('$DESCRIPTION$', str(description))
     d3graphscript = d3graphscript.replace('$TITLE$', str(title))
-
     d3graphscript = d3graphscript.replace('$WIDTH$', str(width))
     d3graphscript = d3graphscript.replace('$HEIGHT$', str(height))
-
     d3graphscript = d3graphscript.replace('$STROKE$', str(stroke))
-
     d3graphscript = d3graphscript.replace('$DATA_PATH$', filename)
     d3graphscript = d3graphscript.replace('$DATA_COMES_HERE$', DATA_STR)
 
     # Write to file
-    with open(path, 'w') as file: file.write(d3graphscript)
+    with open(path, 'w', encoding="utf8", errors='ignore') as file: file.write(d3graphscript)
     # Open browser with heatmap
     if showfig: webbrowser.open(path, new=1)
+
     # Return
     out = {}
     out['filename'] = filename
