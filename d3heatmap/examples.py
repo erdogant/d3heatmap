@@ -14,10 +14,10 @@ from d3heatmap import d3heatmap as d3
 df = d3.import_example()
 
 # Create interactive heatmap
-results = d3.heatmap(df)
+results = d3.heatmap(df, vmax=1)
 
 # Create heatmap with some user-defined settings
-results = d3.heatmap(df, path='c:/temp/example/d3_heatmap.html', title='Created in d3heatmap', description='d3 heatmap is created using https://github.com/erdogant/d3heatmap. This heatmap is a stand-alone application!', width=300, height=300)
+results = d3.heatmap(df, vmax=1, path='c:/temp/example/d3_heatmap.html', title='Created in d3heatmap', description='d3 heatmap is created using https://github.com/erdogant/d3heatmap. This heatmap is a stand-alone application!', width=300, height=300)
 
 
 # %% Create heatmap without clustering
