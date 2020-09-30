@@ -19,7 +19,7 @@ curpath = os.path.dirname(os.path.abspath(__file__))
 
 
 # %%
-def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, scale=True, vmin=None, vmax=None, width=720, height=720, showfig=True, stroke='red', verbose=3):
+def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax=None, width=720, height=720, showfig=True, stroke='red', verbose=3):
     """Heatmap in d3 javascript.
 
     Parameters
@@ -34,15 +34,9 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, scal
         Title text.
     description : String, (default: 'Heatmap description')
         Description text of the heatmap.
-    scale : Bool, (default: True).
-        Scale the values between [0-100].
-    vmin : Bool, (default: 0).
-        Range of colors starting with minimum value.
-            * 1 : cells with value <1 are coloured white.
-            * None : cells are colored based on the minimum value in the input data.
     vmax : Bool, (default: 100).
-        Range of colors starting with maximum value.
-            * 100 : cells above value >100 are capped.
+        Range of colors starting with maximum value. Increasing this value will color the cells more discrete.
+            * 1 : cells above value >1 are capped.
             * None : cells are colored based on the maximum value in the input data.
     width : int, (default: 500).
         Width of the window.
@@ -85,14 +79,14 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, scal
     if description is None:
         description = "This heatmap is created in d3js using https://github.com/erdogant/d3heatmap.\n\nA network can be represented by an adjacency matrix, where each cell ij represents an edge from vertex i to vertex j.\n\nGiven this two-dimensional representation of a graph, a natural visualization is to show the matrix! However, the effectiveness of a matrix diagram is heavily dependent on the order of rows and columns: if related nodes are placed closed to each other, it is easier to identify clusters and bridges.\nWhile path-following is harder in a matrix view than in a node-link diagram, matrices have other advantages. As networks get large and highly connected, node-link diagrams often devolve into giant hairballs of line crossings. Line crossings are impossible with matrix views. Matrix cells can also be encoded to show additional data; here color depicts clusters computed by a community-detection algorithm."
 
+    # Rescale data
+    if vmax is not None:
+        df = _scale(df, vmax=vmax, make_round=False, verbose=verbose)
     # if vmin is None:
         # vmin = np.min(df.values)
     if vmax is None:
         vmax = np.max(df.values)
-    # Rescale data
-    if scale:
-        df = _scale(df, vmax=vmax, make_round=False, verbose=verbose)
-        vmax = np.max(df.values)
+        if verbose>=3: print('[d3heatmap] >Set vmax: %.0g.' %(vmax))
 
     # Get path to files
     d3_library = os.path.abspath(os.path.join(curpath, 'd3js/d3.v2.min.js'))
@@ -483,7 +477,7 @@ def _scale(X, vmax=100, make_round=True, verbose=3):
         Scaled image.
 
     """
-    if verbose>=3: print('[d3heatmap] >Scaling image between [min-%.0g]' %(vmax))
+    if verbose>=3: print('[d3heatmap] >Scaling image between [min-100]')
     try:
         # Normalizing between 0-100
         # X = X - X.min()
