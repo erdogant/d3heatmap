@@ -158,7 +158,7 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
     #   }
 
     # Import in the file
-    with open(path, 'r') as file: d3graphscript = file.read()
+    with open(path, 'r', encoding="utf8", errors='ignore') as file: d3graphscript = file.read()
 
     # Read the d3 html with script file
     d3graphscript = d3graphscript.replace('$DESCRIPTION$', str(description))
