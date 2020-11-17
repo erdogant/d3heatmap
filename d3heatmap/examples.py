@@ -32,7 +32,7 @@ d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is created us
 
 # %% Plot same adjacency matrix using heatmap and matrix
 df = d3.import_example()
-results = d3.heatmap(df, title='d3heatmap with the heatmap function.')
+results = d3.heatmap(df, vmax=1, title='d3heatmap with the heatmap function.')
 results = d3.matrix(df, title='d3heatmap with the matrix function.', cmap='interpolateGreens')
 
 # %% Several examples
