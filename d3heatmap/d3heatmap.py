@@ -392,7 +392,7 @@ def matrix(df, path=None, title='d3heatmap!', description='Heatmap description',
     d3graphscript = d3graphscript.replace('$DATA_COMES_HERE$', DATA_STR)
 
     # Write to file
-    with open(path, 'w') as file: file.write(d3graphscript)
+    with open(path, 'w', encoding="utf8", errors='ignore') as file: file.write(d3graphscript)
     # Open browser with heatmap
     if showfig: webbrowser.open(path, new=1)
     # Return
