@@ -164,6 +164,7 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
     d3graphscript = d3graphscript.replace('$DESCRIPTION$', str(description))
     d3graphscript = d3graphscript.replace('$TITLE$', str(title))
     d3graphscript = d3graphscript.replace('$WIDTH$', str(width))
+    d3graphscript = d3graphscript.replace('$WIDTH_DROPDOWN$', str(int(width + 200)))
     d3graphscript = d3graphscript.replace('$HEIGHT$', str(height))
     d3graphscript = d3graphscript.replace('$STROKE$', str(stroke))
     d3graphscript = d3graphscript.replace('$DATA_PATH$', filename)
