@@ -13,7 +13,7 @@
 
 * ``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
 * The **aim** of d3heatmap is to create interactive heatmaps that can be used stand-alone and being visual attractive. 
-* This library does not require you any additional installation, downloads or setting paths to your systems environments. You just need python and this library. All other is taken care off. There are two main functions to create a heatmap ``matrix`` and ``heatmap`` and there are some differences between the two.
+* This library does not require any additional installation of javascript, or downloads or setting paths to your systems environments. You just need python and pip install this library. There are two main functions to create a heatmap, namely in the form of a ``matrix`` and ``heatmap`` and there are some differences between the two. See below.
 
 ``d3heatmap.matrix``
  * Allows none symetric adjacency matrices.
