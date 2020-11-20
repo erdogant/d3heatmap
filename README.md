@@ -58,10 +58,12 @@ df = d3.import_example()
 paths = results = d3.heatmap(df)
 ```
 
+Klik on the figure for the interactive example.
 <p align="center">
-  <img src="https://github.com/erdogant/d3heatmap/blob/master/docs/figs/example_1.png" width="600" />
+  <a href="https://erdogant.github.io/docs/d3heatmap/d3heatmap.html">
+     <img src="https://github.com/erdogant/d3heatmap/blob/master/docs/figs/example_1.png" width="600" />
+  </a>
 </p>
-
 
 #### Example 2: plot using the matrix function
 
