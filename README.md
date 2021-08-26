@@ -12,8 +12,8 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erdogant/d3heatmap/blob/master/notebooks/d3heatmap.ipynb)
 
 * ``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
-* The **aim** of d3heatmap is to create interactive heatmaps that can be used stand-alone and visual attractive. 
-* This library does not require you any additional installation, downloads or setting paths to your systems environments. You just need python and this library. All other is taken care off. There are two main functions to create a heatmap ``matrix`` and ``heatmap`` and there are some differences between the two.
+* The **aim** of d3heatmap is to create interactive heatmaps that can be used stand-alone and being visual attractive. 
+* This library does not require any additional installation of javascript, or downloads or setting paths to your systems environments. You just need python and pip install this library. There are two main functions to create a heatmap and there are some differences between the two. Read below for more details. Have fun!
 
 ``d3heatmap.matrix``
  * Allows none symetric adjacency matrices.
@@ -121,15 +121,7 @@ results = d3.matrix(df, title='d3heatmap with the matrix function.', cmap='inter
 </p>
 
 #### Citation
-Please cite d3heatmap in your publications if this is useful for your research. Here is an example BibTeX entry:
-```BibTeX
-@misc{erdogant2020d3heatmap,
-  title={d3heatmap},
-  author={Erdogan Taskesen},
-  year={2019},
-  howpublished={\url{https://github.com/erdogant/d3heatmap}},
-}
-```
+Please cite d3heatmap in your publications if this is useful for your research. See right column for citation information.
 
 #### References
 * https://github.com/erdogant/d3heatmap
