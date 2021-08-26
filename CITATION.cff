@@ -1,0 +1,21 @@
+# YAML 1.2
+---
+authors: 
+  -
+    family-names: Taskesen
+    given-names: Erdogan
+    orcid: "https://orcid.org/0000-0002-3430-9618"
+cff-version: "1.1.0"
+date-released: 2019-12-28
+keywords: 
+  - "heatmap"
+  - "interactive"
+  - "clustering"
+  - "d3js"
+  - "python"
+license: "MIT"
+message: "If you use this software, please cite it using these metadata."
+repository-code: "https://github.com/erdogant/d3heatmap"
+title: "Interactive and standalone heatmaps (d3heatmap)"
+version: "0.1.7"
+...
