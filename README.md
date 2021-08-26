@@ -121,15 +121,7 @@ results = d3.matrix(df, title='d3heatmap with the matrix function.', cmap='inter
 </p>
 
 #### Citation
-Please cite d3heatmap in your publications if this is useful for your research. Here is an example BibTeX entry:
-```BibTeX
-@misc{erdogant2020d3heatmap,
-  title={d3heatmap},
-  author={Erdogan Taskesen},
-  year={2019},
-  howpublished={\url{https://github.com/erdogant/d3heatmap}},
-}
-```
+Please cite d3heatmap in your publications if this is useful for your research. See right column for citation information.
 
 #### References
 * https://github.com/erdogant/d3heatmap
