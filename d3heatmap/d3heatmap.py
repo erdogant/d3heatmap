@@ -15,6 +15,7 @@ import webbrowser
 import tempfile
 from shutil import copyfile
 import os
+import time
 curpath = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -185,7 +186,7 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
 
 
 # %%
-def matrix(df, path=None, title='d3heatmap!', description='Heatmap description', width=500, height=500, fontsize=10, cmap='interpolateInferno', scale=False, vmin=None, vmax=None, showfig=True, stroke='red', verbose=3):
+def matrix(df, path=None, title='d3heatmap!', description='Heatmap description', width=500, height=500, fontsize=10, cmap='interpolateInferno', scale=False, vmin=None, vmax=None, showfig=True, stroke='red', overwrite=False, verbose=3):
     """Heatmap in d3 javascript.
 
     Parameters
@@ -220,6 +221,8 @@ def matrix(df, path=None, title='d3heatmap!', description='Heatmap description',
             * 'black'
     showfig : Bool, (default: True)
         Open browser with heatmap.
+    overwrite : Bool, (default: False)
+        Overwrite existing file on the path location.
     cmap : String, (default: 'interpolateInferno').
         The colormap scheme. This can be found at: https://github.com/d3/d3-scale-chromatic.
         Categorical:
@@ -392,10 +395,20 @@ def matrix(df, path=None, title='d3heatmap!', description='Heatmap description',
     d3graphscript = d3graphscript.replace('$DATA_PATH$', filename)
     d3graphscript = d3graphscript.replace('$DATA_COMES_HERE$', DATA_STR)
 
-    # Write to file
-    with open(path, 'w', encoding="utf8", errors='ignore') as file: file.write(d3graphscript)
-    # Open browser with heatmap
-    if showfig: webbrowser.open(path, new=1)
+    # Delete file if exists
+    if overwrite:
+        os.remove(path)
+    if os.path.isfile(path):
+        if verbose>=4: print('[d3heatmap] >Warning: File already exists! Delete it manually or set the parameter "overwrite=True"')
+    else:
+        # Write to file
+        if verbose>=3: print('[d3heatmap] >Writing to disk..')
+        with open(path, 'w', encoding="utf8", errors='ignore') as file: file.write(d3graphscript)
+        # Sleep a bit to make sure file is written
+        time.sleep(0.5)
+        # Open browser with heatmap
+        if showfig: webbrowser.open(path, new=1)
+
     # Return
     out = {}
     out['filename'] = filename
