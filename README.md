@@ -13,9 +13,11 @@
 [![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)
 <!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
 
-* ``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
+``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
 * The **aim** of d3heatmap is to create interactive heatmaps that can be used stand-alone and being visual attractive. 
 * This library does not require any additional installation of javascript, or downloads or setting paths to your systems environments. You just need python and pip install this library. There are two main functions to create a heatmap and there are some differences between the two. Read below for more details. Have fun!
+
+### Functionalities
 
 ``d3heatmap.matrix``
  * Allows none symetric adjacency matrices.
@@ -29,10 +31,10 @@
  * Advanced cluster coloring. Clusters are colored and within each cluster the color is incremental based on the value.
  * Adjacency matrix must be symetric.
 
+# 
+**Star this repo if you like it! ⭐️**
+#
 
-### Installation
-* Install ``d3heatmap`` from PyPI (recommended). d3heatmap is compatible with Python 3.6+ and runs on Linux, MacOS X and Windows. 
-* It is distributed under the MIT license.
 
 #### Installation
 ```
