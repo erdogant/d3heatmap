@@ -17,7 +17,7 @@ df = d3.import_example()
 results = d3.heatmap(df, vmax=1)
 
 # Create heatmap with some user-defined settings
-results = d3.heatmap(df, vmax=1, path='c:/temp/example/d3_heatmap.html', title='Created in d3heatmap', description='d3 heatmap is created using https://github.com/erdogant/d3heatmap. This heatmap is a stand-alone application!', width=1000, height=1000)
+results = d3.heatmap(df, vmax=1, width=1000, height=1000, path='c:/temp/example/d3_heatmap.html', title='Created in d3heatmap', description='d3 heatmap is created using https://github.com/erdogant/d3heatmap. This heatmap is a stand-alone application!')
 
 
 # %% Create heatmap without clustering
