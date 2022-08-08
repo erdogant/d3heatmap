@@ -17,7 +17,7 @@ df = d3.import_example()
 results = d3.heatmap(df, vmax=1)
 
 # Create heatmap with some user-defined settings
-results = d3.heatmap(df, vmax=1, width=1000, height=1000, path='c:/temp/example/d3_heatmap.html', title='Created in d3heatmap', description='d3 heatmap is created using https://github.com/erdogant/d3heatmap. This heatmap is a stand-alone application!')
+# results = d3.heatmap(df, vmax=1, width=800, height=800, path='c:/temp/example/d3_heatmap.html', title='Created in d3heatmap', description='d3 heatmap is created using https://github.com/erdogant/d3heatmap. This heatmap is a stand-alone application!')
 
 
 # %% Create heatmap without clustering
@@ -27,7 +27,7 @@ df = d3.import_example(size=(6, 20))
 d3.matrix(df)
 
 # The dataframe contains more columns then rows. Adjust the size and color differently.
-d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is created using https://github.com/erdogant/d3heatmap.', path='c:/temp/example/d3_matrix.html', width=600, height=300, cmap='interpolateGreens', vmin=1)
+d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is created using https://github.com/erdogant/d3heatmap.', path='c:/temp/example/d3_matrix.html', width=600, height=300, cmap='interpolateGreens', vmin=1, showfig=True)
 
 
 # %% Plot same adjacency matrix using heatmap and matrix
@@ -56,6 +56,6 @@ d3.matrix(df, fontsize=10, title='Hooray!', description='Heatmap in d3js using p
 d3.matrix(df, fontsize=10, title='Hooray!', description='Heatmap in d3js using python!', path='d3heatmap_example_6.html', height=200, width=750, cmap='interpolateGreens', scale=False, stroke='black')
 
 # Change several parameters
-d3.matrix(df, fontsize=10, title='Hooray!', description='Heatmap in d3js using python!', path='d3heatmap_example_7.html', height=200, width=750, cmap='interpolateGreens', scale=False, stroke='red', vmin=None, vmax=None)
+d3.matrix(df, fontsize=10, title='D3Heatmap', description='Heatmap in d3js using python!', path='d3heatmap_example_7.html', height=200, width=750, cmap='interpolateGreens', scale=False, stroke='red', vmin=None, vmax=None)
 
 # %%
