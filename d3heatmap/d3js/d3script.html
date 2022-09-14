@@ -11,15 +11,15 @@
 <meta charset="utf-8">
 
 <!-- Load d3.js -->
-<!-- <script src="https://d3js.org/d3.v4.js"></script>  -->
 <script src="d3.v4.js"></script>
+<!-- {% include "d3.v4.js" %} -->
 
 <!-- Create a div where the graph will take place -->
 <div id="d3_heatmap"></div>
 
 <!-- Load color palettes -->
-<!-- <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> -->
 <script src="d3.scale.chromatic.v1.min.js"></script>
+<!-- {% include "d3.scale.chromatic.v1.min.js" %} -->
 
 
 <script>
@@ -87,6 +87,7 @@ var data =
     .style("border-width", "2px")
     .style("border-radius", "5px")
     .style("padding", "5px")
+    .style("position", "absolute") // SHOW TOOLTIP CORRECTLY WHEN HOVERING
 
   // Three function that change the tooltip when user hover / move / leave a cell
   var mouseover = function(d) {

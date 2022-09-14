@@ -97,7 +97,7 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
     filename, dirpath, path = _path_check(path, verbose)
 
     # Copy files to destination directory
-    copyfile(d3_library, os.path.join(dirpath, os.path.basename(d3_library)))
+    # copyfile(d3_library, os.path.join(dirpath, os.path.basename(d3_library)))
     copyfile(d3_script, path)
 
     # Collect node names
@@ -113,7 +113,7 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
     # Write to disk (file is not used)
     basename, ext = os.path.splitext(filename)
     PATHNAME_TO_CSV = os.path.join(dirpath, basename + '.csv')
-    dfvec.to_csv(PATHNAME_TO_CSV, index=False)
+    # dfvec.to_csv(PATHNAME_TO_CSV, index=False)
 
     # Cluster the nodes
     if clust is None:
