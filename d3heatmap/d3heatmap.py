@@ -8,7 +8,6 @@
 # --------------------------------------------------
 
 from clusteval import clusteval
-from d3heatmap.utils.adjmat_vec import adjmat2vec
 import numpy as np
 import pandas as pd
 import webbrowser
@@ -16,6 +15,8 @@ import tempfile
 from shutil import copyfile
 import os
 import time
+from ismember import ismember
+
 curpath = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -186,7 +187,7 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
 
 
 # %%
-def matrix(df, path=None, title='d3heatmap!', description='Heatmap description', width=500, height=500, fontsize=10, cmap='interpolateInferno', scale=False, vmin=None, vmax=None, showfig=True, stroke='red', overwrite=False, verbose=3):
+def matrix(df, path=None, title='d3heatmap', description='Heatmap description', width=500, height=500, fontsize=10, cmap='interpolateInferno', scale=False, vmin=None, vmax=None, showfig=True, stroke='red', overwrite=True, verbose=3):
     """Heatmap in d3 javascript.
 
     Parameters
@@ -228,64 +229,22 @@ def matrix(df, path=None, title='d3heatmap!', description='Heatmap description',
         Categorical:
             * 'schemeCategory10'
             * 'schemeAccent'
-            * 'schemeDark2'
-            * 'schemePaired'
-            * 'schemePastel1'
-            * 'schemePastel2'
-            * 'schemeSet1'
-            * 'schemeSet2'
-            * 'schemeSet3'
-            * 'schemeTableau10'
         Diverging:
             * 'interpolateInferno'
             * 'interpolatePRGn'
-            * 'interpolatePiYG'
-            * 'interpolatePuOr'
-            * 'interpolateRdBu'
-            * 'interpolateRdGy'
-            * 'interpolateRdYlBu'
-            * 'interpolateRdYlGn'
-            * 'interpolateSpectral'
         Single color:
             * 'interpolateBlues'
             * 'interpolateGreens'
-            * 'interpolateGreys'
-            * 'interpolateOranges'
-            * 'interpolatePurples'
-            * 'interpolateReds'
         Sequential:
             * 'interpolateTurbo'
             * 'interpolateViridis'
             * 'interpolateInferno'
-            * 'interpolateMagma'
-            * 'interpolatePlasma'
-            * 'interpolateCividis'
-            * 'interpolateWarm'
-            * 'interpolateCool'
-            * 'interpolateCubehelixDefault'
-            * 'interpolateBuGn'
-            * 'interpolateBuPu'
-            * 'interpolateGnBu'
-            * 'interpolateOrRd'
-            * 'interpolatePuBuGn'
-            * 'interpolatePuBu'
-            * 'interpolatePuRd'
-            * 'interpolateRdPu'
-            * 'interpolateYlGnBu'
-            * 'interpolateYlGn'
-            * 'interpolateYlOrBr'
-            * 'interpolateYlOrRd'
         Cyclic:
             * 'interpolateRainbow'
             * 'interpolateSinebow'
     verbose : int [0-5], (default: 3)
         Verbosity to print the working-status. The higher the number, the more information.
-            * 0: None
-            * 1: Error
-            * 2: Warning
-            * 3: Info
-            * 4: Debug
-            * 5: Trace
+            * 0: None, 1: Error, 2: Warning, 3: Info, 4: Debug, 5: Trace
 
     Example
     -------
@@ -351,7 +310,7 @@ def matrix(df, path=None, title='d3heatmap!', description='Heatmap description',
     # Write to disk (file is not used)
     basename, ext = os.path.splitext(filename)
     PATHNAME_TO_CSV = os.path.join(dirpath, basename + '.csv')
-    dfvec.to_csv(PATHNAME_TO_CSV, index=False)
+    # dfvec.to_csv(PATHNAME_TO_CSV, index=False)
 
     # Embed the Data in the HTML. Note that the embedding is an important stap te prevent security issues by the browsers.
     # Most (if not all) browser do not accept to read a file using d3.csv or so. It then requires security-by-passes, but thats not the way to go.
@@ -399,7 +358,7 @@ def matrix(df, path=None, title='d3heatmap!', description='Heatmap description',
     if overwrite:
         os.remove(path)
     if os.path.isfile(path):
-        if verbose>=4: print('[d3heatmap] >Warning: File already exists! Delete it manually or set the parameter "overwrite=True"')
+        if verbose>=2: print('[d3heatmap] >Warning: File already exists! Delete it manually or set the parameter "overwrite=True"')
     else:
         # Write to file
         if verbose>=3: print('[d3heatmap] >Writing to disk..')
@@ -501,3 +460,106 @@ def _scale(X, vmax=100, make_round=True, verbose=3):
         if verbose>=2: print('[d3heatmap] >Warning: Scaling not possible.')
 
     return X
+
+
+# %%  Convert adjacency matrix to vector
+def vec2adjmat(source, target, weight=None, symmetric=True):
+    """Convert source and target into adjacency matrix.
+
+    Parameters
+    ----------
+    source : list
+        The source node.
+    target : list
+        The target node.
+    weight : list of int
+        The Weights between the source-target values
+    symmetric : bool, optional
+        Make the adjacency matrix symmetric with the same number of rows as columns. The default is True.
+
+    Returns
+    -------
+    pd.DataFrame
+        adjacency matrix.
+    
+    Examples
+    --------
+    >>> source=['Cloudy','Cloudy','Sprinkler','Rain']
+    >>> target=['Sprinkler','Rain','Wet_Grass','Wet_Grass']
+    >>> vec2adjmat(source, target)
+    >>> 
+    >>> weight=[1,2,1,3]
+    >>> vec2adjmat(source, target, weight=weight)
+
+    """
+    if len(source)!=len(target): raise Exception('[hnet] >Source and Target should have equal elements.')
+    if weight is None: weight = [1]*len(source)
+    
+    df = pd.DataFrame(np.c_[source, target], columns=['source','target'])
+    # Make adjacency matrix
+    adjmat = pd.crosstab(df['source'], df['target'], values=weight, aggfunc='sum').fillna(0)
+    # Get all unique nodes
+    nodes = np.unique(list(adjmat.columns.values)+list(adjmat.index.values))
+    # nodes = np.unique(np.c_[adjmat.columns.values, adjmat.index.values].flatten())
+
+    # Make the adjacency matrix symmetric
+    if symmetric:
+        # Add missing columns
+        node_columns = np.setdiff1d(nodes, adjmat.columns.values)
+        for node in node_columns:
+            adjmat[node]=0
+
+        # Add missing rows
+        node_rows = np.setdiff1d(nodes, adjmat.index.values)
+        adjmat=adjmat.T
+        for node in node_rows:
+            adjmat[node]=0
+        adjmat=adjmat.T
+
+        # Sort to make ordering of columns and rows similar
+        [IA, IB] = ismember(adjmat.columns.values, adjmat.index.values)
+        adjmat = adjmat.iloc[IB, :]
+        adjmat.index.name='source'
+        adjmat.columns.name='target'
+
+    return(adjmat)
+
+
+# %%  Convert adjacency matrix to vector
+def adjmat2vec(adjmat, min_weight=0, verbose=3):
+    """Convert adjacency matrix into vector with source and target.
+
+    Parameters
+    ----------
+    adjmat : pd.DataFrame()
+        Adjacency matrix.
+
+    min_weight : float
+        edges are returned with a minimum weight.
+
+    Returns
+    -------
+    pd.DataFrame()
+        nodes that are connected based on source and target
+
+    Examples
+    --------
+    >>> source=['Cloudy','Cloudy','Sprinkler','Rain']
+    >>> target=['Sprinkler','Rain','Wet_Grass','Wet_Grass']
+    >>> adjmat = vec2adjmat(source, target)
+    >>> vector = adjmat2vec(adjmat)
+
+    """
+    # Convert adjacency matrix into vector
+    adjmat = adjmat.stack().reset_index()
+    # Set columns
+    adjmat.columns = ['source', 'target', 'weight']
+    # Remove self loops and no-connected edges
+    # Iloc1 = adjmat['source']!=adjmat['target']
+    Iloc2 = adjmat['weight']>=min_weight
+    # Iloc = Iloc1 & Iloc2
+    Iloc = Iloc2
+    # Take only connected nodes
+    adjmat = adjmat.loc[Iloc, :]
+    adjmat.reset_index(drop=True, inplace=True)
+    return(adjmat)

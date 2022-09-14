@@ -1,9 +1,5 @@
 from d3heatmap import d3heatmap
 
-from d3heatmap.utils.adjmat_vec import (
-    vec2adjmat,
-    adjmat2vec,
-    )
 
 __author__ = 'Erdogan Tasksen'
 __email__ = 'erdogant@gmail.com'
