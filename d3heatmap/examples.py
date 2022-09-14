@@ -24,10 +24,10 @@ d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is created us
 df = d3.import_example()
 
 # Create interactive heatmap
-results = d3.heatmap(df, vmax=1)
+results = d3.heatmap(df, vmax=1, path='c:/temp/d3_matrix.html')
 
 # Create heatmap with some user-defined settings
-results = d3.heatmap(df, vmax=1, width=800, height=800, path='c:/temp/example/d3_heatmap.html', title='Created in d3heatmap', description='d3 heatmap is created using https://github.com/erdogant/d3heatmap. This heatmap is a stand-alone application!')
+# results = d3.heatmap(df, vmax=1, width=800, height=800, path='c:/temp/example/d3_heatmap.html', title='Created in d3heatmap', description='d3 heatmap is created using https://github.com/erdogant/d3heatmap. This heatmap is a stand-alone application!')
 
 
 # %% Plot same adjacency matrix using heatmap and matrix
