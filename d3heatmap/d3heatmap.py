@@ -21,15 +21,16 @@ curpath = os.path.dirname(os.path.abspath(__file__))
 
 
 # %%
-def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax=None, width=720, height=720, showfig=True, stroke='red', verbose=3):
-    """Heatmap in d3 javascript.
+def heatmap(df, color='cluster', path=None, title='d3heatmap', description=None, vmax=None, width=720, height=720, showfig=True, stroke='red', verbose=3):
+    """Heatmap in d3js.
 
     Parameters
     ----------
     df : pd.DataFrame()
         Input data. The index and column names are used for the row/column naming.
-    clust : Numpy array
-        Cluster label data. Should be in the same order as the columns and of the input dataframe
+    color : Numpy array
+        Should be in the same order as the columns and of the input dataframe
+        None or 'cluster': a clustering approach is used for coloring.
     path : String, (Default: user temp directory)
         Directory path to save the output, such as 'c://temp/index.html'
     title : String, (default: 'd3 Heatmap!')
@@ -66,7 +67,7 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
     >>> # Import example
     >>> df = d3.import_example()
     >>> # Create heatmap
-    >>> paths = results = d3.heatmap(df)
+    >>> results = d3.heatmap(df, vmax=1)
 
     Returns
     -------
@@ -80,6 +81,8 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
         if verbose>=2: print('[d3heatmap] >Warning: Input data should contain unique index names otherwise d3js randomly removes the non-unique ones.')
     if description is None:
         description = "This heatmap is created in d3js using https://github.com/erdogant/d3heatmap.\n\nA network can be represented by an adjacency matrix, where each cell ij represents an edge from vertex i to vertex j.\n\nGiven this two-dimensional representation of a graph, a natural visualization is to show the matrix! However, the effectiveness of a matrix diagram is heavily dependent on the order of rows and columns: if related nodes are placed closed to each other, it is easier to identify clusters and bridges.\nWhile path-following is harder in a matrix view than in a node-link diagram, matrices have other advantages. As networks get large and highly connected, node-link diagrams often devolve into giant hairballs of line crossings. Line crossings are impossible with matrix views. Matrix cells can also be encoded to show additional data; here color depicts clusters computed by a community-detection algorithm."
+    if isinstance(color, str) and color=='cluster':
+        color=None
 
     # Rescale data
     if vmax is not None:
@@ -117,10 +120,10 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
     # dfvec.to_csv(PATHNAME_TO_CSV, index=False)
 
     # Cluster the nodes
-    if clust is None:
+    if color is None:
         ce = clusteval()
         results = ce.fit(df.values)
-        clust = results['labx']
+        color = results['labx']
 
     # Embed the Data in the HTML. Note that the embedding is an important stap te prevent security issues by the browsers.
     # Most (if not all) browser do not accept to read a file using d3.csv or so. It then requires security-by-passes, but thats not the way to go.
@@ -129,7 +132,7 @@ def heatmap(df, clust=None, path=None, title='d3heatmap', description=None, vmax
 
     NODE_STR = '\n{\n"nodes":\n[\n'
     for i in range(0, len(nodes)):
-        NODE_STR = NODE_STR + '{"name":' + '"' + nodes[i] + '"' + ',' + '"cluster":' + str(clust[i]) + "},"
+        NODE_STR = NODE_STR + '{"name":' + '"' + nodes[i] + '"' + ',' + '"cluster":' + str(color[i]) + "},"
         NODE_STR = NODE_STR + '\n'
     NODE_STR = NODE_STR + '],\n'
 

@@ -3,7 +3,7 @@ from d3heatmap import d3heatmap
 
 __author__ = 'Erdogan Tasksen'
 __email__ = 'erdogant@gmail.com'
-__version__ = '0.2.1'
+__version__ = '0.2.3'
 
 # module level doc-string
 __doc__ = """
@@ -22,10 +22,10 @@ Example
 >>> # Example 1:
 >>> df = d3.import_example()
 >>> # Create heatmap
->>> paths = results = d3.heatmap(df)
+>>> paths = d3.heatmap(df, vmax=1)
 >>>
 >>> # Example 2:
->>> df = d3.import_example(size=(6,20))
+>>> df = d3.import_example(size=(12,20))
 >>> # Create heatmap
 >>> paths = d3.matrix(df)
 >>>
