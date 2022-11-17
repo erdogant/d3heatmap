@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/pypi/pyversions/d3heatmap)](https://img.shields.io/pypi/pyversions/d3heatmap)
 [![Pypi](https://img.shields.io/pypi/v/d3heatmap)](https://pypi.org/project/d3heatmap/)
-[![Docs](https://img.shields.io/badge/Sphinx-Docs-Green)](https://erdogant.github.io/d3heatmap/)
+[![Docs](https://img.shields.io/badge/Sphinx-Docs-Green)](https://d3blocks.github.io/d3blocks/pages/html/Heatmap.html)
 [![LOC](https://sloc.xyz/github/erdogant/d3heatmap/?category=code)](https://github.com/erdogant/d3heatmap/)
 [![Downloads](https://static.pepy.tech/personalized-badge/d3heatmap?period=month&units=international_system&left_color=grey&right_color=brightgreen&left_text=PyPI%20downloads/month)](https://pepy.tech/project/d3heatmap)
 [![Downloads](https://static.pepy.tech/personalized-badge/d3heatmap?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/d3heatmap)
@@ -12,7 +12,6 @@
 [![Project Status](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![DOI](https://zenodo.org/badge/228166657.svg)](https://zenodo.org/badge/latestdoi/228166657)
 [![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://towardsdatascience.com/d3blocks-the-python-library-to-create-interactive-and-standalone-d3js-charts-3dda98ce97d4)
-[![Colab](https://colab.research.google.com/assets/colab-badge.svg?logo=github%20sponsors)](https://erdogant.github.io/d3heatmap/pages/html/Documentation.html#colab-notebook)
 [![Donate](https://img.shields.io/badge/Support%20this%20project-grey.svg?logo=github%20sponsors)](https://erdogant.github.io/d3heatmap/pages/html/Documentation.html#)
 <!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
 <!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
