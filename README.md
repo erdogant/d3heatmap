@@ -2,16 +2,16 @@
 
 [![Python](https://img.shields.io/pypi/pyversions/d3heatmap)](https://img.shields.io/pypi/pyversions/d3heatmap)
 [![PyPI Version](https://img.shields.io/pypi/v/d3heatmap)](https://pypi.org/project/d3heatmap/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/erdogant/d3heatmap/blob/master/LICENSE)
-[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)
+[![License](https://img.shields.io/badge/license-BSD3-green.svg)](https://github.com/erdogant/d3heatmap/blob/master/LICENSE)
 [![Github Forks](https://img.shields.io/github/forks/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/network)
 [![GitHub Open Issues](https://img.shields.io/github/issues/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/issues)
 [![Project Status](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![Downloads](https://pepy.tech/badge/d3heatmap/month)](https://pepy.tech/project/d3heatmap)
+[![DOI](https://zenodo.org/badge/228166657.svg)](https://zenodo.org/badge/latestdoi/228166657)
 [![Downloads](https://pepy.tech/badge/d3heatmap)](https://pepy.tech/project/d3heatmap)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/erdogant/d3heatmap/blob/master/notebooks/d3heatmap.ipynb)
-[![DOI](https://zenodo.org/badge/298880904.svg)](https://zenodo.org/badge/latestdoi/298880904)
-[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)
+[![Downloads](https://pepy.tech/badge/d3heatmap/month)](https://pepy.tech/project/d3heatmap)
+[![Sphinx](https://img.shields.io/badge/Sphinx-Docs-Green)](https://erdogant.github.io/d3heatmap/)
+[![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://towardsdatascience.com/d3blocks-the-python-library-to-create-interactive-and-standalone-d3js-charts-3dda98ce97d4)
+<!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
 <!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
 
 ``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
