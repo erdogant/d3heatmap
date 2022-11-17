@@ -1,18 +1,22 @@
 # d3heatmap
 
 [![Python](https://img.shields.io/pypi/pyversions/d3heatmap)](https://img.shields.io/pypi/pyversions/d3heatmap)
-[![PyPI Version](https://img.shields.io/pypi/v/d3heatmap)](https://pypi.org/project/d3heatmap/)
-[![License](https://img.shields.io/badge/license-BSD3-green.svg)](https://github.com/erdogant/d3heatmap/blob/master/LICENSE)
-[![Github Forks](https://img.shields.io/github/forks/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/network)
-[![GitHub Open Issues](https://img.shields.io/github/issues/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/issues)
+[![Pypi](https://img.shields.io/pypi/v/d3heatmap)](https://pypi.org/project/d3heatmap/)
+[![Docs](https://img.shields.io/badge/Sphinx-Docs-Green)](https://erdogant.github.io/d3heatmap/)
+[![LOC](https://sloc.xyz/github/erdogant/d3heatmap/?category=code)](https://github.com/erdogant/d3heatmap/)
+[![Downloads](https://static.pepy.tech/personalized-badge/d3heatmap?period=month&units=international_system&left_color=grey&right_color=brightgreen&left_text=PyPI%20downloads/month)](https://pepy.tech/project/d3heatmap)
+[![Downloads](https://static.pepy.tech/personalized-badge/d3heatmap?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/d3heatmap)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/erdogant/d3heatmap/blob/master/LICENSE)
+[![Forks](https://img.shields.io/github/forks/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/network)
+[![Issues](https://img.shields.io/github/issues/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/issues)
 [![Project Status](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![DOI](https://zenodo.org/badge/228166657.svg)](https://zenodo.org/badge/latestdoi/228166657)
-[![Downloads](https://pepy.tech/badge/d3heatmap)](https://pepy.tech/project/d3heatmap)
-[![Downloads](https://pepy.tech/badge/d3heatmap/month)](https://pepy.tech/project/d3heatmap)
-[![Sphinx](https://img.shields.io/badge/Sphinx-Docs-Green)](https://erdogant.github.io/d3heatmap/)
 [![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://towardsdatascience.com/d3blocks-the-python-library-to-create-interactive-and-standalone-d3js-charts-3dda98ce97d4)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg?logo=github%20sponsors)](https://erdogant.github.io/d3heatmap/pages/html/Documentation.html#colab-notebook)
+[![Donate](https://img.shields.io/badge/Support%20this%20project-grey.svg?logo=github%20sponsors)](https://erdogant.github.io/d3heatmap/pages/html/Documentation.html#)
 <!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
 <!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
+
 
 ``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
 * The **aim** of d3heatmap is to create interactive heatmaps that can be used stand-alone and being visual attractive. 
