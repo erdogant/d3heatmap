@@ -10,7 +10,7 @@
 [![Forks](https://img.shields.io/github/forks/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/network)
 [![Issues](https://img.shields.io/github/issues/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/issues)
 [![Project Status](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![DOI](https://zenodo.org/badge/228166657.svg)](https://zenodo.org/badge/latestdoi/228166657)
+[![DOI](https://zenodo.org/badge/298880904.svg)](https://zenodo.org/badge/latestdoi/298880904)
 [![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://towardsdatascience.com/d3blocks-the-python-library-to-create-interactive-and-standalone-d3js-charts-3dda98ce97d4)
 [![Donate](https://img.shields.io/badge/Support%20this%20project-grey.svg?logo=github%20sponsors)](https://erdogant.github.io/d3heatmap/pages/html/Documentation.html#)
 <!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
