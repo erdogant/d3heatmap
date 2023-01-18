@@ -1,4 +1,4 @@
-## This library is since 18-01-2023 fully implemented in [D3Blocks](https://d3blocks.github.io/d3blocks/pages/html/Heatmap.html). This repo will be froozen at v0.2.3. Please use heatmap in D3Blocks!
+## This library is since 18-01-2023 fully implemented in [D3Blocks](https://d3blocks.github.io/d3blocks/pages/html/Heatmap.html). This repo will be froozen at v0.2.3. Please use heatmap in D3Blocks.
 
 # d3heatmap
 
