@@ -1,5 +1,6 @@
 # d3heatmap
 
+[![Project Status](http://www.repostatus.org/badges/latest/moved.svg)](http://www.repostatus.org/#Moved)
 [![Python](https://img.shields.io/pypi/pyversions/d3heatmap)](https://img.shields.io/pypi/pyversions/d3heatmap)
 [![Pypi](https://img.shields.io/pypi/v/d3heatmap)](https://pypi.org/project/d3heatmap/)
 [![Docs](https://img.shields.io/badge/Sphinx-Docs-Green)](https://d3blocks.github.io/d3blocks/pages/html/Heatmap.html)
@@ -9,7 +10,6 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/erdogant/d3heatmap/blob/master/LICENSE)
 [![Forks](https://img.shields.io/github/forks/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/network)
 [![Issues](https://img.shields.io/github/issues/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/issues)
-[![Project Status](http://www.repostatus.org/badges/latest/moved.svg)](http://www.repostatus.org/#Moved)
 [![DOI](https://zenodo.org/badge/298880904.svg)](https://zenodo.org/badge/latestdoi/298880904)
 [![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://towardsdatascience.com/d3blocks-the-python-library-to-create-interactive-and-standalone-d3js-charts-3dda98ce97d4)
 [![Donate](https://img.shields.io/badge/Support%20this%20project-grey.svg?logo=github%20sponsors)](https://d3blocks.github.io/d3blocks/pages/html/Documentation.html)
