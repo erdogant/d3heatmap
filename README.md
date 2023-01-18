@@ -56,7 +56,7 @@ d3.heatmap(df)
  * Adjacency matrix must be symetric.
 
 # 
-**Star this repo if you like it! ⭐️**
+**Star the [D3Blocks](https://d3blocks.github.io/d3blocks/pages/html/Heatmap.html) repo if you like it! ⭐️**
 #
 
 
