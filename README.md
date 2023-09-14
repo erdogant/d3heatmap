@@ -1,19 +1,20 @@
+## This library is since 18-01-2023 fully implemented in [D3Blocks](https://d3blocks.github.io/d3blocks/pages/html/Heatmap.html). This repo will be froozen at v0.2.3 and not updated anymore. Please use heatmap in D3Blocks for updates and further support.
+
 # d3heatmap
 
+[![Project Status](http://www.repostatus.org/badges/latest/moved.svg)](http://www.repostatus.org/#Moved)
 [![Python](https://img.shields.io/pypi/pyversions/d3heatmap)](https://img.shields.io/pypi/pyversions/d3heatmap)
 [![Pypi](https://img.shields.io/pypi/v/d3heatmap)](https://pypi.org/project/d3heatmap/)
-[![Docs](https://img.shields.io/badge/Sphinx-Docs-Green)](https://erdogant.github.io/d3heatmap/)
+[![Docs](https://img.shields.io/badge/Sphinx-Docs-Green)](https://d3blocks.github.io/d3blocks/pages/html/Heatmap.html)
 [![LOC](https://sloc.xyz/github/erdogant/d3heatmap/?category=code)](https://github.com/erdogant/d3heatmap/)
 [![Downloads](https://static.pepy.tech/personalized-badge/d3heatmap?period=month&units=international_system&left_color=grey&right_color=brightgreen&left_text=PyPI%20downloads/month)](https://pepy.tech/project/d3heatmap)
 [![Downloads](https://static.pepy.tech/personalized-badge/d3heatmap?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/d3heatmap)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/erdogant/d3heatmap/blob/master/LICENSE)
 [![Forks](https://img.shields.io/github/forks/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/network)
 [![Issues](https://img.shields.io/github/issues/erdogant/d3heatmap.svg)](https://github.com/erdogant/d3heatmap/issues)
-[![Project Status](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![DOI](https://zenodo.org/badge/228166657.svg)](https://zenodo.org/badge/latestdoi/228166657)
+[![DOI](https://zenodo.org/badge/298880904.svg)](https://zenodo.org/badge/latestdoi/298880904)
 [![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://towardsdatascience.com/d3blocks-the-python-library-to-create-interactive-and-standalone-d3js-charts-3dda98ce97d4)
-[![Colab](https://colab.research.google.com/assets/colab-badge.svg?logo=github%20sponsors)](https://erdogant.github.io/d3heatmap/pages/html/Documentation.html#colab-notebook)
-[![Donate](https://img.shields.io/badge/Support%20this%20project-grey.svg?logo=github%20sponsors)](https://erdogant.github.io/d3heatmap/pages/html/Documentation.html#)
+[![Donate](https://img.shields.io/badge/Support%20this%20project-grey.svg?logo=github%20sponsors)](https://d3blocks.github.io/d3blocks/pages/html/Documentation.html)
 <!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
 <!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
 
@@ -21,6 +22,25 @@
 ``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
 * The **aim** of d3heatmap is to create interactive heatmaps that can be used stand-alone and being visual attractive. 
 * This library does not require any additional installation of javascript, or downloads or setting paths to your systems environments. You just need python and pip install this library. There are two main functions to create a heatmap and there are some differences between the two. Read below for more details. Have fun!
+
+
+```
+pip install d3blocks
+
+# Import
+from d3blocks import D3Blocks
+
+# Initialize
+d3 = D3Blocks()
+
+# Load example data
+df = d3.import_example('stormofswords')
+df = d3.vec2adjmat(df['source'], df['target'], weight=df['weight'], symmetric=True)
+
+# Plot
+d3.heatmap(df)
+```
+
 
 ### Functionalities
 
@@ -37,7 +57,7 @@
  * Adjacency matrix must be symetric.
 
 # 
-**Star this repo if you like it! ⭐️**
+**Star the [D3Blocks](https://d3blocks.github.io/d3blocks/pages/html/Heatmap.html) repo if you like it! ⭐️**
 #
 
 
