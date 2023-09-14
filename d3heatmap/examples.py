@@ -8,6 +8,13 @@ import pandas as pd
 import numpy as np
 from d3heatmap import d3heatmap as d3
 
+# %%
+# Import example
+df = d3.import_example()
+# Create interactive heatmap
+results = d3.heatmap(df, vmax=1, path='c:/temp/d3_matrix.html', color=None)
+
+
 # %% Create heatmap without clustering
 df = d3.import_example(size=(6, 20))
 
