@@ -5,8 +5,11 @@ __pycache__/
 
 # C extensions
 *.so
+.pypirc
 
-d3heatmap/data/
+# ignore dirs
+libraries/
+.pypirc
 
 # Distribution / packaging
 .pylint.*

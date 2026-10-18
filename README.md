@@ -75,12 +75,19 @@ pip install -U .
 #### Import d3heatmap
 
 ```python
-from d3heatmap import d3heatmap as d3
+from d3heatmap import heatmap
+# Initialize
+d3 = heatmap()
 ```
 
 #### Example 1: plot using the heatmap function
 
 ```python
+from d3heatmap import heatmap
+# Initialize
+d3 = heatmap()
+
+# Load example data
 df = d3.import_example()
 # Create heatmap
 paths = results = d3.heatmap(df)
@@ -96,8 +103,13 @@ Klik on the figure for the interactive example.
 #### Example 2: plot using the matrix function
 
 ```python
+from d3heatmap import heatmap
+# Initialize
+d3 = heatmap()
+
+# Load example data
 df = d3.import_example(size=(6,20))
-# Create heatmap
+# Create matrix heatmap
 paths = d3.matrix(df)
 ```
 
@@ -109,6 +121,10 @@ paths = d3.matrix(df)
 #### Example 3: plot using the matrix function
 
 ```python
+from d3heatmap import heatmap
+# Initialize
+d3 = heatmap()
+
 # The dataframe contains more columns then rows. Adjust the size and color differently.
 df = d3.import_example(size=(6,20))
 # Create heatmap
@@ -123,6 +139,10 @@ paths = d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is cr
 #### Example 4: Matrix with parameters changed:
 
 ```python
+from d3heatmap import heatmap
+# Initialize
+d3 = heatmap()
+
 # The dataframe contains more columns then rows. Adjust the size and color differently.
 df = d3.import_example(size=(6,20))
 # Create heatmap
@@ -138,6 +158,10 @@ paths = d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is cr
 There are quit some differences between the ``heatmap`` vs ``matrix`` functionality.
 
 ```python
+from d3heatmap import heatmap
+# Initialize
+d3 = heatmap()
+
 df = d3.import_example()
 results = d3.heatmap(df, title='d3heatmap with the heatmap function.', path='heatmap.html')
 results = d3.matrix(df, title='d3heatmap with the matrix function.', cmap='interpolatePRGn', path='matrix.html', width=700, height=700)
