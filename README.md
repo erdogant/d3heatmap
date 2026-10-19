@@ -1,5 +1,7 @@
 # d3heatmap
 
+## This library is since 18-01-2023 fully implemented in D3Blocks.
+
 [![Project Status](http://www.repostatus.org/badges/latest/moved.svg)](http://www.repostatus.org/#Moved)
 [![Python](https://img.shields.io/pypi/pyversions/d3heatmap)](https://img.shields.io/pypi/pyversions/d3heatmap)
 [![Pypi](https://img.shields.io/pypi/v/d3heatmap)](https://pypi.org/project/d3heatmap/)
@@ -13,32 +15,11 @@
 [![DOI](https://zenodo.org/badge/298880904.svg)](https://zenodo.org/badge/latestdoi/298880904)
 [![Medium](https://img.shields.io/badge/Medium-Blog-green)](https://towardsdatascience.com/d3blocks-the-python-library-to-create-interactive-and-standalone-d3js-charts-3dda98ce97d4)
 [![Donate](https://img.shields.io/badge/Support%20this%20project-grey.svg?logo=github%20sponsors)](https://d3blocks.github.io/d3blocks/pages/html/Documentation.html)
-<!---[![BuyMeCoffee](https://img.shields.io/badge/buymea-coffee-yellow.svg)](https://www.buymeacoffee.com/erdogant)-->
-<!---[![Coffee](https://img.shields.io/badge/coffee-black-grey.svg)](https://erdogant.github.io/donate/?currency=USD&amount=5)-->
 
 
 ``d3heatmap`` is a Python package to create interactive heatmaps based on d3js.
 * The **aim** of d3heatmap is to create interactive heatmaps that can be used stand-alone and being visual attractive. 
 * This library does not require any additional installation of javascript, or downloads or setting paths to your systems environments. You just need python and pip install this library. There are two main functions to create a heatmap and there are some differences between the two. Read below for more details. Have fun!
-
-## This library is since 18-01-2023 fully implemented in D3Blocks.
-
-```
-pip install d3blocks
-
-# Import
-from d3blocks import D3Blocks
-
-# Initialize
-d3 = D3Blocks()
-
-# Load example data
-df = d3.import_example('stormofswords')
-df = d3.vec2adjmat(df['source'], df['target'], weight=df['weight'], symmetric=True)
-
-# Plot
-d3.heatmap(df)
-```
 
 
 ### Functionalities
@@ -65,32 +46,20 @@ d3.heatmap(df)
 pip install d3heatmap
 ```
 
-* Alternatively, install d3heatmap from the GitHub source:
-```bash
-git clone https://github.com/erdogant/d3heatmap.git
-cd d3heatmap
-pip install -U .
-```  
-
-#### Import d3heatmap
+#### Example Heatmap
 
 ```python
-from d3heatmap import heatmap
-# Initialize
-d3 = heatmap()
-```
 
-#### Example 1: plot using the heatmap function
+    from d3heatmap import heatmap
+    # Initialize
+    d3 = heatmap()
+    
+    # Load example data
+    df = d3.import_example('stormofswords')
 
-```python
-from d3heatmap import heatmap
-# Initialize
-d3 = heatmap()
+    # Create heatmap
+    paths = results = d3.heatmap(df)
 
-# Load example data
-df = d3.import_example()
-# Create heatmap
-paths = results = d3.heatmap(df)
 ```
 
 Klik on the figure for the interactive example.
@@ -100,17 +69,17 @@ Klik on the figure for the interactive example.
   </a>
 </p>
 
-#### Example 2: plot using the matrix function
+#### Example: matrix
 
 ```python
-from d3heatmap import heatmap
-# Initialize
-d3 = heatmap()
-
-# Load example data
-df = d3.import_example(size=(6,20))
-# Create matrix heatmap
-paths = d3.matrix(df)
+    from d3heatmap import matrix
+    # Initialize
+    d3 = matrix()
+    
+    # Load example data
+    df = pd.DataFrame(np.random.randint(0, 10, size=(6, 20)))
+    # Create matrix
+    paths = d3.matrix(df)
 ```
 
 <p align="center">
@@ -118,17 +87,19 @@ paths = d3.matrix(df)
 </p>
 
 
-#### Example 3: plot using the matrix function
+#### Example: Matrix with properties
 
 ```python
-from d3heatmap import heatmap
-# Initialize
-d3 = heatmap()
 
-# The dataframe contains more columns then rows. Adjust the size and color differently.
-df = d3.import_example(size=(6,20))
-# Create heatmap
-paths = d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is created using https://github.com/erdogant/d3heatmap.', path='c:/temp/example/d3_matrix.html', width=600, height=300, cmap='interpolateGreens', vmin=1)
+    from d3heatmap import matrix
+    # Initialize
+    d3 = matrix()
+    
+    # The dataframe contains more columns then rows. Adjust the size and color differently.
+    df = pd.DataFrame(np.random.randint(0, 10, size=(6, 20)))
+    # Create matrix
+    d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is created using https://github.com/erdogant/d3heatmap.', cmap='interpolateGreens', vmin=1)
+
 ```
 
 <p align="center">
@@ -136,25 +107,7 @@ paths = d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is cr
 </p>
 
 
-#### Example 4: Matrix with parameters changed:
-
-```python
-from d3heatmap import heatmap
-# Initialize
-d3 = heatmap()
-
-# The dataframe contains more columns then rows. Adjust the size and color differently.
-df = d3.import_example(size=(6,20))
-# Create heatmap
-paths = d3.matrix(df, fontsize=10, title='Hooray!', description='d3 matrix is created using https://github.com/erdogant/d3heatmap.', path='c:/temp/example/d3_matrix.html', width=600, height=300, cmap='interpolateGreens', vmin=1)
-```
-
-<p align="center">
-  <img src="https://github.com/erdogant/d3heatmap/blob/master/docs/figs/example_4.png" width="600" />
-</p>
-
-
-#### Example 4: Comparison heatmap vs matrix:
+#### Example: Comparison heatmap vs matrix:
 There are quit some differences between the ``heatmap`` vs ``matrix`` functionality.
 
 ```python
@@ -163,8 +116,8 @@ from d3heatmap import heatmap
 d3 = heatmap()
 
 df = d3.import_example()
-results = d3.heatmap(df, title='d3heatmap with the heatmap function.', path='heatmap.html')
-results = d3.matrix(df, title='d3heatmap with the matrix function.', cmap='interpolatePRGn', path='matrix.html', width=700, height=700)
+results = d3.heatmap(df, title='d3heatmap with the heatmap function.', filepath='heatmap.html')
+results = d3.matrix(df, title='d3heatmap with the matrix function.', cmap='interpolatePRGn', filepath='matrix.html')
 ```
 
 <p align="center">

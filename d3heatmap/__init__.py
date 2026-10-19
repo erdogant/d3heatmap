@@ -45,6 +45,14 @@ def heatmap(*args, **kwargs):
     """
     return D3Blocks(*args, **kwargs)
 
+def matrix(*args, **kwargs):
+    """Factory that returns a D3Blocks instance.
+
+    Usage:
+        from d3heatmap import matrix
+        d3 = heatmap()
+    """
+    return D3Blocks(*args, **kwargs)
 
 # Exported symbols
-__all__ = ['heatmap']
+__all__ = ['heatmap', 'matrix']
